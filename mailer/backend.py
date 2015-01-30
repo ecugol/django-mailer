@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.core.mail.backends.base import BaseEmailBackend
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext as _
 
 from mailer.models import Message
 
