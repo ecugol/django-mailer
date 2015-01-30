@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.core.mail.backends.base import BaseEmailBackend
+from django.utils.translation import ugettext_lazy as _
 
 from mailer.models import Message
 
@@ -11,7 +12,7 @@ class DbBackend(BaseEmailBackend):
         subject_prefix = getattr(settings, 'MAILER_EMAIL_SUBJECT_PREFIX', None)
         for email in email_messages:
             if subject_prefix:
-                email.subject = u'%s %s' % (subject_prefix, email.subject)
+                email.subject = u'%s %s' % (_(subject_prefix), email.subject)
             msg = Message()
             msg.email = email
             msg.save()
